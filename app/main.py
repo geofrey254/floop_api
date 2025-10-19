@@ -1,12 +1,13 @@
 import uvicorn
 from fastapi import FastAPI
+from api.routes_movies import router as movie_router
 
 app = FastAPI()
 
 
-@app.get("/")
-def root():
-    return {"message": "Welcome to Floop"}
+
+
+app.include_router(movie_router)
 
 
 if __name__ == "__main__":

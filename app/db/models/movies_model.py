@@ -13,5 +13,5 @@ class Movie(SQLModel, table=True):
     language:str
     poster_url: Optional[str] = None
     is_published:bool = Field(default=False)
-    created_at:datetime.datetime = Field(default_factory=datetime.timezone.utcnow)
-    updated_at: datetime.datetime = Field(default_factory=datetime.datetime.now(datetime.timezone.utc))
+    created_at: datetime.datetime = Field(default_factory=lambda: datetime.datetime.now(datetime.timezone.utc))
+    updated_at: datetime.datetime = Field(default_factory=lambda: datetime.datetime.now(datetime.timezone.utc))
